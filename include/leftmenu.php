@@ -7,7 +7,7 @@
     <!-- Sidebar user panel -->
     
     <div class="user-panel">
-      <div class="pull-left image"> <img src="img/avatar3.png" class="img-circle" alt="User Image" /> </div>
+      <div class="pull-left image"> <img src="img/admin.png" class="img-circle" alt="User Image" /> </div>
       <div class="pull-left info">
         <p>
           <?php 
@@ -92,7 +92,8 @@
                 <li <?php echo $a2; ?>><a href="student_list.php"><i class="fa fa-angle-double-right"></i>Edit Student</a></li>
             </ul>
         </li>
-	  
+        <li <?php echo $a1; ?>><a href="index.php?id=<?php echo $_SESSION['id']; ?>"><span>Logout</span></a></li>
+
     </ul>
   </section>
   <!-- /.sidebar -->

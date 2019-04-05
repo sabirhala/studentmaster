@@ -1,7 +1,7 @@
 
 <header class="header">
           
-              <img src="logo.png" class="logo"/>
+              <img src="img/studentlogo.jpg" class="logo"/>
             
            
             <!-- Header Navbar: style can be found in header.less -->
@@ -32,7 +32,7 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-blue">
-                                    <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                                    <img src="img/admin.png" class="img-circle" alt="User Image" />
                                     <p>
                                         <?php echo $_SESSION['unm']."-Web Developer"; ?>
                                         
@@ -46,7 +46,7 @@
                                         <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="index.php" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>

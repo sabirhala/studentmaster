@@ -4,7 +4,7 @@ error_reporting(1);
 $username=$_POST['uname'];
 $password=$_POST['password'];
 
-$query = "SELECT * FROM userdetails WHERE Email ='$username' and password ='$password'";
+$query = "SELECT * FROM usermaster WHERE email ='$username' and password ='$password'";
 $result = $dbc->query($query);
 
 
@@ -12,10 +12,10 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "value found";
-        echo "id: " . $row["userID"]. " - Name: " . $row["userName"]. " " . $row["Email"]. "<br>";
+        echo "id: " . $row["id"]. " - Name: " . $row["username"]. " " . $row["email"]. "<br>";
         session_start();
-        $_SESSION['uID']=$row["userID"];
-        $_SESSION['unm']=$row["userName"];
+       echo  $_SESSION['uID']=$row["id"];
+        echo $_SESSION['unm']=$row["username"];
 
         header("location:welcome.php");
     }
