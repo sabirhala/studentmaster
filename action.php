@@ -2,6 +2,7 @@
 include("include/config.php");
 include("my_config/define_table.php");
 
+
 $main_table = TBl_STUDENT;
 if(isset($_POST['btnstudent']))
 {
