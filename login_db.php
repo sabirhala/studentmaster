@@ -2,7 +2,7 @@
 include("include/config.php");
 error_reporting(1);
 $username=$_POST['uname'];
-$password=$_POST['password'];
+$password=md5($_POST['password']);
 
 $query = "SELECT * FROM usermaster WHERE email ='$username' and password ='$password'";
 $result = $dbc->query($query);

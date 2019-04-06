@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2019 at 12:50 PM
+-- Generation Time: Apr 06, 2019 at 01:36 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -61,7 +61,8 @@ CREATE TABLE `usermaster` (
 --
 
 INSERT INTO `usermaster` (`id`, `username`, `email`, `password`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin');
+(1, 'admin', 'admin@gmail.com', '21232F297A57A5A743894A0E4A801FC3'),
+(2, 'me', 'me@gmail.com', '3D4113B4F0C510F7F581B1643CAF3070');
 
 --
 -- Indexes for dumped tables
@@ -93,7 +94,7 @@ ALTER TABLE `studentmaster`
 -- AUTO_INCREMENT for table `usermaster`
 --
 ALTER TABLE `usermaster`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
