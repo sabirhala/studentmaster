@@ -1,14 +1,21 @@
 <?php 
 include("include/config.php");
+include("my_config/define_table.php");
+
+$main_table = TBl_STUDENT;
 if(isset($_POST['btnstudent']))
 {
 //***************************Add User**************************************
     if(isset($_POST['uname'])&& isset($_POST['email']) && isset($_POST['address']) && isset($_POST['mono']) && $_GET['action'] != 'update')
     {
-        $sql_user='insert into studentmaster(name,email,address,phone) 
-			values("'.$_POST['uname'].'","'.$_POST['email'].'","'.$_POST['address'].'","'.$_POST['mono'].'")';
+        unset($store_array);
+        $store_array['name'] = $_POST['uname'];
+        $store_array['email'] = $_POST['email'];
+        $store_array['address'] = $_POST['address'];
+        $store_array['phone'] = $_POST['mono'];
 
-        $result =  $dbc->Query($sql_user);
+      //  echo TBl_STUDENT;
+        $result = $dbc->insert($main_table, $store_array);
 		if($result){
 			$message='<div class="alert alert-success fade in">User is successfully added.<button type="button" class="close" 
 					data-dismiss="alert" aria-hidden="true">x</button></div>';
@@ -25,10 +32,19 @@ if(isset($_POST['btnstudent']))
     {
 
 		$arr_module=implode(',', $_POST['permissions']);
-        $query = 'update studentmaster set name = "'.$_POST['uname'].'",email = "'.$_POST['email'].'",address = "'.$_POST['address'].'",phone = "'.$_POST['mono'].'"
-			where id ='.$_POST['hidden_id'];
-        $sql =  $dbc->Query($query);
-		if($sql){
+//        $query = 'update studentmaster set name = "'.$_POST['uname'].'",email = "'.$_POST['email'].'",address = "'.$_POST['address'].'",phone = "'.$_POST['mono'].'"
+//			where id ='.$_POST['hidden_id'];
+
+        unset($store_array);
+        $store_array['name'] = $_POST['uname'];
+        $store_array['email'] = $_POST['email'];
+        $store_array['address'] = $_POST['address'];
+        $store_array['phone'] = $_POST['mono'];
+        $where = 'id = '.$_POST['hidden_id'];
+       // 'id = '.$_GET['id'];
+        $result = $dbc->update($main_table,$store_array,$where);
+        //$sql =  $dbc->Query($query);
+		if($result){
 			$message='<div class="alert alert-success fade in">User is successfully updated.<button type="button" class="close" 
 								data-dismiss="alert" aria-hidden="true">x</button></div>';
 								@session_start();
@@ -43,9 +59,8 @@ if(isset($_POST['btnstudent']))
 
 if($_GET['action'] == 'delete' && isset($_GET['id']) &&  $_GET['id'] != '')
 {
-
-    $sql ='delete  from studentmaster where id = '.$_GET['id'];
-    $result =  $dbc->Query($sql);
+    $where =  'id = '.$_GET['id'];
+    $result = $dbc->delete($main_table,$where);
     $message='<div class="alert alert-danger fade in">Record is successfully deleted.<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button></div>';
     @session_start();
     $_SESSION['msg']=$message;
@@ -53,8 +68,6 @@ if($_GET['action'] == 'delete' && isset($_GET['id']) &&  $_GET['id'] != '')
     exit();
 }
 
-
-/**************************Delete level*********************************/
 
 
 ?>

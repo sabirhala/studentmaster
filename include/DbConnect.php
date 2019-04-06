@@ -175,8 +175,6 @@ class DbConnect {
             $sql .=" WHERE " . $where;
         }
 
-       // echo $sql;
-
         $sql = str_replace("\\&quot;\\", "", $sql);
         $sql = str_replace("\\&quot;", "", $sql);
 
